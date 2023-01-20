@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
         Vector3 move = new Vector3(horizontalInput, 0, 0);
         controller.Move(move * Time.fixedDeltaTime * movementSpeed);
 
-        if (spacePressed && groundedPlayer){
+        if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer){
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             spacePressed = false;
         }

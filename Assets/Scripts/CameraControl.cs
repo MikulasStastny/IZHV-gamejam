@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour
 {
     public Transform target;
     //public Vector3 offset = new Vector3(0, 4, -10);
-    public float smoothTime = 0.5f;
+    public float smoothTime = 0.125f;
     Vector3 currentVelocity;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class CameraControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         Vector3 cameraPosition = new Vector3(target.position.x, 0, -10);
 
