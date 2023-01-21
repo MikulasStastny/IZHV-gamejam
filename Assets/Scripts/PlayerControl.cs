@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        //transform.position = new Vector3(0, 0, 0);
+
     }
 
     // Update is called once per frame
@@ -39,18 +39,24 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 move = new Vector3(horizontalInput, 0, 0);
         if(groundedPlayer){
-            controller.Move(move * Time.fixedDeltaTime * movementSpeed);
+            move.x *= movementSpeed;
         }
         else{
-            controller.Move(move * Time.fixedDeltaTime * movementJumpSpeed);
+            move.x *= movementJumpSpeed;
         }
 
         if (jumped){
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             jumped = false;
         }
-
-        playerVelocity.y += gravityValue * Time.fixedDeltaTime;
-        controller.Move(playerVelocity * Time.fixedDeltaTime);
+        if((controller.collisionFlags & CollisionFlags.Above) != 0){
+            playerVelocity.y = -1;
+        }
+        else{
+            playerVelocity.y += gravityValue * Time.fixedDeltaTime;
+        }
+        move.y = playerVelocity.y;
+        
+        controller.Move(move * Time.fixedDeltaTime);
     }
 }
