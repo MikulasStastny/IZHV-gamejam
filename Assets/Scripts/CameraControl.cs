@@ -7,8 +7,10 @@ public class CameraControl : MonoBehaviour
     public Transform target;
     public Vector3 offset = new Vector3(0, 1, -10);
     public float smoothTime = 0.125f;
+    private float originalSmoothTime;
     Vector3 currentVelocity;
     public Camera mainCamera;
+    public CharacterController player;
     public float platformHeight = 4.5f;
     private float screenHalfWidth;
     private float screenHalfHeight;
@@ -16,6 +18,7 @@ public class CameraControl : MonoBehaviour
     private float rightStopper;
     private float downStopper;
     private float upStopper;
+    private bool playerIsFalling;
 
     // Start is called before the first frame update
     void Start(){
@@ -29,11 +32,18 @@ public class CameraControl : MonoBehaviour
         rightStopper = 40 - screenHalfWidth;
         downStopper = -1 + screenHalfHeight;
         upStopper = 31 - screenHalfHeight;
+
+        originalSmoothTime = smoothTime;
     }
 
     // Update is called once per frame
     void FixedUpdate(){
         Vector3 cameraPosition = offset;
+
+        if(playerIsFalling && player.isGrounded){
+            playerIsFalling = false;
+            smoothTime = originalSmoothTime;
+        }
 
         if(target.position.x < leftStopper){
             cameraPosition.x = leftStopper;
@@ -52,8 +62,20 @@ public class CameraControl : MonoBehaviour
             cameraPosition.y = upStopper;
         }
         else{
-            int platform = (int)(target.position.y/platformHeight);
-            cameraPosition.y += platform*platformHeight;
+            if(playerIsFalling){
+                cameraPosition.y = target.position.y;
+            }
+            else{
+                int platform = (int)(target.position.y/platformHeight);
+                cameraPosition.y += platform*platformHeight;
+            }
+        }
+
+        // Case for very fast player speed (when falling) - speeds up the camera
+        if(Vector3.Distance(transform.position, cameraPosition) > 5){
+            smoothTime = 0.1f;
+            playerIsFalling = true;
+            cameraPosition.y = target.position.y;
         }
 
         transform.position = Vector3.SmoothDamp(transform.position, cameraPosition, ref currentVelocity, smoothTime);
