@@ -66,6 +66,7 @@ public class CameraControl : MonoBehaviour
                 cameraPosition.y = target.position.y;
             }
             else{
+                // Camera y value changes only when player enter different platform - removes unnecessary camera movement
                 int platform = (int)(target.position.y/platformHeight);
                 cameraPosition.y += platform*platformHeight;
             }
