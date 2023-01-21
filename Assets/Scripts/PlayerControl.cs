@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float movementSpeed = 10f;
-    //public float movementJumpSpeed = 7f;
+    public float movementJumpSpeed = 7f;
     public CharacterController controller;
     private float horizontalInput;
     private float verticalInput;
@@ -35,7 +35,12 @@ public class PlayerControl : MonoBehaviour
         }
 
         Vector3 move = new Vector3(horizontalInput, 0, 0);
-        controller.Move(move * Time.fixedDeltaTime * movementSpeed);
+        if(groundedPlayer){
+            controller.Move(move * Time.fixedDeltaTime * movementSpeed);
+        }
+        else{
+            controller.Move(move * Time.fixedDeltaTime * movementJumpSpeed);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer){
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
