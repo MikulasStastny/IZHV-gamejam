@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public Transform target;
-    //public Vector3 offset = new Vector3(0, 4, -10);
+    public Vector3 offset = new Vector3(0, 1, -10);
     public float smoothTime = 0.125f;
     Vector3 currentVelocity;
     public Camera mainCamera;
-    public float platformHeight = 4f;
+    public float platformHeight = 4.5f;
     private float screenHalfWidth;
     private float screenHalfHeight;
     private float leftStopper;
@@ -25,15 +25,15 @@ public class CameraControl : MonoBehaviour
                                     - mainCamera.ViewportToWorldPoint(new Vector3(0, 0, -10)).x);
         screenHalfHeight = Mathf.Abs(mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, -10)).y
                                     - mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0, -10)).y);
-        leftStopper = -10f + screenHalfWidth;
-        rightStopper = 40f - screenHalfWidth;
-        downStopper = -1f + screenHalfHeight;
-        upStopper = 30f - screenHalfHeight;
+        leftStopper = -10 + screenHalfWidth;
+        rightStopper = 40 - screenHalfWidth;
+        downStopper = -1 + screenHalfHeight;
+        upStopper = 31 - screenHalfHeight;
     }
 
     // Update is called once per frame
     void FixedUpdate(){
-        Vector3 cameraPosition = new Vector3(0, 1, -10);
+        Vector3 cameraPosition = offset;
 
         if(target.position.x < leftStopper){
             cameraPosition.x = leftStopper;

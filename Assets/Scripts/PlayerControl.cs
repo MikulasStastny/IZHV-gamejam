@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     private bool groundedPlayer;
     private bool jumped = false;
     public float jumpHeight = 3.5f;
-    public float gravityValue = -15f;
+    public float gravityValue = -25f;
 
     // Start is called before the first frame update
     void Start(){
