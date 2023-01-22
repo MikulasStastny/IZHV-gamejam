@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7221237545517051069}
   - component: {fileID: 8324401128873084505}
-  - component: {fileID: 6255836115341136880}
+  - component: {fileID: -705428946603272584}
   m_Layer: 0
   m_Name: Block
   m_TagString: Ground
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6255836115341136880
+--- !u!61 &-705428946603272584
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

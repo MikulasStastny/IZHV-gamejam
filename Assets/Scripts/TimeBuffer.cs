@@ -5,11 +5,12 @@ using UnityEngine;
 public class TimeBuffer : MonoBehaviour
 {
     public Transform playerPosition;
-    public CharacterController controller;
-    private Vector2[] array;
-    private int arraySize;
-    private int arrayLength = 200;
+    // it is 60 frames per second
+    private const int TOTAL_FRAMES = 300;
     public float moveSpeed = 0.25f;
+
+    private Queue<Vector2> _positions;
+    private List<Vector2> _traceBack;
 
     IEnumerator enterTimeLoop(){
         print("Entering time loop...");
@@ -17,25 +18,21 @@ public class TimeBuffer : MonoBehaviour
         GetComponent<PlayerControl>().enabled = false;
         
         int i = 0;
-        bool reversed = false;
         Vector3 move = new Vector3(0, 0, 0);
 
-        while(!Input.GetKey(KeyCode.Space)){
-            move.x = array[i].x;
-            move.y = array[i].y;
-            Vector3 diff = transform.TransformDirection(move - transform.position);
-            controller.Move(diff * moveSpeed);
+        while(!Input.GetKey(KeyCode.Space))
+        {
+            move.x = _traceBack[i].x;
+            move.y = _traceBack[i].y;
 
-            if(i == arrayLength -1){
-                reversed = true;
+            transform.position = move;
+            if (i == _traceBack.Count - 1)
+            {
+                // restart the loop
+                i = 0;
             }
-            else if(i == 0){
-                reversed = false;
-            }
-            if(reversed){
-                i--;
-            }
-            else{
+            else
+            {
                 i++;
             }
             yield return null;
@@ -45,38 +42,38 @@ public class TimeBuffer : MonoBehaviour
         GetComponent<PlayerControl>().enabled = true;
         print("Exitting time loop.");
     }
-    // For debug purpose
-    void printArray(Vector2[] array){
-        print("Array size: " + arraySize);
-        for(int i = 0; i < arraySize; i++){
-            print("index: " + i + '\n' + "values: " + array[i].x + " " + array[i].y);
-            print("values: " + array[i].x + " " + array[i].y);
+
+    void fillInTraceBack()
+    {
+        _traceBack.Clear();
+        while (_positions.Count > 0)
+        {
+            _traceBack.Add(_positions.Dequeue());
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        array = new Vector2[arrayLength];
-        arraySize = 0;
+        _positions = new Queue<Vector2>();
+        _traceBack = new List<Vector2>();
     }
 
     // Update is called once per frame
     void Update(){
         if(Input.GetKeyDown(KeyCode.Z)){
+            fillInTraceBack();
             StartCoroutine(enterTimeLoop());
         }
 
-        // Shifts values in array
-        for(int i = arraySize; i > 0; i--){
-            array[i] = array[i-1];
+        if (_positions.Count > TOTAL_FRAMES)
+        {
+            // We have filled our queue, drop the oldest record
+            _positions.Dequeue();
         }
-        // Inserts current player position
-        array[0].x = playerPosition.position.x;
-        array[0].y = playerPosition.position.y;
-
-        if(arraySize < arrayLength-1){
-            arraySize++;
-        }
+        _positions.Enqueue(new Vector2(
+            playerPosition.position.x,
+            playerPosition.position.y
+        ));
     }
 }

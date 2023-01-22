@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce = 18;
 
     void checkIsGrounded(){
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.8f), Vector2.down, 1f);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.4f), Vector2.down, 1f);
  
         if (hit.collider != null){
             if(hit.collider.tag == "Ground"){
