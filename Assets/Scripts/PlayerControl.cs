@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 playerVelocity;
     public bool isGrounded;
     public float jumpForce = 18;
+    private bool isSpriteFlipped = false;
+    public Animator animator;
 
     void checkIsGrounded(){
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.4f), Vector2.down, 1f);
@@ -31,10 +33,26 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         isGrounded = true;
+        // For some reason it does not scale correctly on the start from editor
+        transform.localScale = new Vector2(1, 1);
     }
 
     void Update() {
         horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (horizontalInput != 0) {
+            animator.SetBool("isMoving", true);
+        } else {
+            animator.SetBool("isMoving", false);
+        }
+
+        // Flip the sprite in accordance with direction
+        if (horizontalInput < 0) {
+            transform.localScale = new Vector2(-1, 1);
+            isSpriteFlipped = true;
+        } else if (isSpriteFlipped) {
+            transform.localScale = new Vector2(1, 1);
+        }
 
         checkIsGrounded();
 
