@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 360d61e57c48d481787048a0894a8dac
+guid: 3aaa3b925fe02792aa4ad2cd340c7526
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red_slime_0
+      name: laser_platform_trap_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40dca49366678c396af4297889b0f82d
-      internalID: 284517252
+      spriteID: f4e51a50acadece2b86a201d461e4007
+      internalID: 490645186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red_slime_1
+      name: laser_platform_trap_1
       rect:
         serializedVersion: 2
         x: 16
@@ -152,8 +152,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ed2cdb8b4f96d6c8963987d8e7ae2d
-      internalID: -197851479
+      spriteID: d0a985f76a7081720bdcce3e82f14b4b
+      internalID: -61173121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_platform_trap_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143778f00206548e593b34d6a4caa197
+      internalID: 47310886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_platform_trap_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355c33d45b8e4be8dad3b1ef896afc25
+      internalID: 569186899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_platform_trap_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8e5018a194dd8a9bdfe0f86a17ad0a
+      internalID: -1760858390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_platform_trap_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6b73e07abb0ec47b46bf4bfc46fd7c
+      internalID: 244818553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_platform_trap_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a5ce479cae89d319fe92257800cee6
+      internalID: 520509219
       vertices: []
       indices: 
       edges: []
@@ -169,8 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      red_slime_1: -197851479
-      red_slime_0: 284517252
+      laser_platform_trap_2: 47310886
+      laser_platform_trap_6: 520509219
+      laser_platform_trap_3: 569186899
+      laser_platform_trap_1: -61173121
+      laser_platform_trap_4: -1760858390
+      laser_platform_trap_0: 490645186
+      laser_platform_trap_5: 244818553
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

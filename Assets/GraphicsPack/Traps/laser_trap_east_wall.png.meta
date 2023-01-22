@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 360d61e57c48d481787048a0894a8dac
+guid: 86bd6b8fc8805ae5ab24cf682966e0ec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,12 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red_slime_0
+      name: laser_trap_east_wall_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40dca49366678c396af4297889b0f82d
-      internalID: 284517252
+      spriteID: 3bf2735261ae228d8801cb9ced374f16
+      internalID: 1801354143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red_slime_1
+      name: laser_trap_east_wall_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,8 +152,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ed2cdb8b4f96d6c8963987d8e7ae2d
-      internalID: -197851479
+      spriteID: 4e2822dfc05bf923789dc8b1be33429d
+      internalID: 1262422616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_trap_east_wall_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fb8f03f4b500ff987ef328e472c7a7
+      internalID: -1843781647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_trap_east_wall_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bdd8f82e33aa2719194df027189049
+      internalID: -1498170834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_trap_east_wall_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6eeb579def8a65485bb5dfc49b1852
+      internalID: 629489202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_trap_east_wall_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8a887a3d4d7c6ba90a0169d40237eb
+      internalID: -114450683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_trap_east_wall_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e893f5c5a9f16b4d6a565b7c59443e0e
+      internalID: 1851170247
       vertices: []
       indices: 
       edges: []
@@ -169,8 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      red_slime_1: -197851479
-      red_slime_0: 284517252
+      laser_trap_east_wall_6: 1851170247
+      laser_trap_east_wall_2: -1843781647
+      laser_trap_east_wall_3: -1498170834
+      laser_trap_east_wall_1: 1262422616
+      laser_trap_east_wall_0: 1801354143
+      laser_trap_east_wall_4: 629489202
+      laser_trap_east_wall_5: -114450683
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

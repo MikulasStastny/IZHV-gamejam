@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 360d61e57c48d481787048a0894a8dac
+guid: 431914fde43176798af925024bd1a500
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red_slime_0
+      name: spike_trap_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40dca49366678c396af4297889b0f82d
-      internalID: 284517252
+      spriteID: b2155161c83abcb45a2ee6e27cf23b0d
+      internalID: -238415427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red_slime_1
+      name: spike_trap_1
       rect:
         serializedVersion: 2
         x: 16
@@ -152,8 +152,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ed2cdb8b4f96d6c8963987d8e7ae2d
-      internalID: -197851479
+      spriteID: 3f0a39c6e29b25a7b87007325b9d4fa6
+      internalID: -1350611869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spike_trap_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028719b95b935e47db02e07d8527bfb1
+      internalID: 1289881188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spike_trap_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f795bbb0c21eec6508e2560f6abecc03
+      internalID: -672995311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spike_trap_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c3d61e1e66b80ce9745491bce038e4
+      internalID: -1138637487
       vertices: []
       indices: 
       edges: []
@@ -169,8 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      red_slime_1: -197851479
-      red_slime_0: 284517252
+      spike_trap_1: -1350611869
+      spike_trap_3: -672995311
+      spike_trap_4: -1138637487
+      spike_trap_2: 1289881188
+      spike_trap_0: -238415427
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
