@@ -44,7 +44,7 @@ public class CameraControl : MonoBehaviour
             smoothTime = originalSmoothTime;
         }
 
-        if(target.position.x < leftStopper){
+        /*if(target.position.x < leftStopper){
             cameraPosition.x = leftStopper;
         }
         else if(target.position.x > rightStopper){
@@ -52,9 +52,12 @@ public class CameraControl : MonoBehaviour
         }
         else{
             cameraPosition.x = target.position.x;
-        }
+        }*/
 
-        if(target.position.y < downStopper){
+        cameraPosition.x = target.position.x;
+        cameraPosition.y = target.position.y;
+
+        /*if(target.position.y < downStopper){
             cameraPosition.y = downStopper;
         }
         else if(target.position.y > upStopper){
@@ -69,14 +72,14 @@ public class CameraControl : MonoBehaviour
                 int platform = (int)(target.position.y/platformHeight);
                 cameraPosition.y += platform*platformHeight;
             }
-        }
+        }*/
 
         // Case for very fast player speed (when falling) - speeds up the camera
-        if(Vector3.Distance(transform.position, cameraPosition) > 5){
+        /*if(Vector3.Distance(transform.position, cameraPosition) > 5){
             smoothTime = 0.1f;
             playerIsFalling = true;
             cameraPosition.y = target.position.y;
-        }
+        }*/
 
         transform.position = Vector3.SmoothDamp(transform.position, cameraPosition, ref currentVelocity, smoothTime);
     }

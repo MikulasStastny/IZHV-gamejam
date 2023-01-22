@@ -2305,11 +2305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09728c87c7b7cabd09cbd8209a736517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  moveJumpSpeed: 7
+  moveSpeed: 8
+  moveJumpSpeed: 6
   body: {fileID: 1890850503}
   isGrounded: 1
-  jumpForce: 18
+  jumpForce: 15
   animator: {fileID: 1890850508}
 --- !u!212 &1890850506
 SpriteRenderer:
