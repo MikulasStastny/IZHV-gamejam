@@ -4,59 +4,53 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float movementSpeed = 10f;
-    public float movementJumpSpeed = 7f;
-    public CharacterController controller;
+    public float moveSpeed = 10f;
+    public float moveJumpSpeed = 7f;
     private float horizontalInput;
-    private float verticalInput;
-
+    public Rigidbody2D body;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private bool jumped = false;
-    public float jumpHeight = 3.5f;
-    public float gravityValue = -25f;
+    public bool isGrounded;
+    public float jumpForce = 18;
+
+    void checkIsGrounded(){
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.8f), Vector2.down, 1f);
+ 
+        if (hit.collider != null){
+            if(hit.collider.tag == "Ground"){
+                isGrounded = true;
+            }
+            else{
+                isGrounded = false;
+            }
+        }
+        else{
+            isGrounded = false;
+        }
+    }
 
     // Start is called before the first frame update
     void Start(){
-
+        isGrounded = true;
     }
 
-    // Update is called once per frame
-    void Update(){
-        groundedPlayer = controller.isGrounded;
+    void Update() {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(!jumped && Input.GetKeyDown(KeyCode.Space) && groundedPlayer){
-            jumped = true;
+        checkIsGrounded();
+
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+            body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            isGrounded = false;
         }
+
     }
+
     void FixedUpdate(){
-
-        if (groundedPlayer && playerVelocity.y < 0){
-            playerVelocity.y = 0f;
-        }
-
-        Vector3 move = new Vector3(horizontalInput, 0, 0);
-        if(groundedPlayer){
-            move.x *= movementSpeed;
+        if(isGrounded){
+            transform.position += new Vector3(horizontalInput, 0, 0) * moveSpeed * Time.deltaTime;
         }
         else{
-            move.x *= movementJumpSpeed;
+            transform.position += new Vector3(horizontalInput, 0, 0) * moveJumpSpeed * Time.deltaTime;
         }
-
-        if (jumped){
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            jumped = false;
-        }
-        if((controller.collisionFlags & CollisionFlags.Above) != 0){
-            playerVelocity.y = -1;
-        }
-        else{
-            playerVelocity.y += gravityValue * Time.fixedDeltaTime;
-        }
-        move.y = playerVelocity.y;
-        
-        controller.Move(move * Time.fixedDeltaTime);
     }
 }

@@ -10,7 +10,6 @@ public class CameraControl : MonoBehaviour
     private float originalSmoothTime;
     Vector3 currentVelocity;
     public Camera mainCamera;
-    public CharacterController player;
     public float platformHeight = 4.5f;
     private float screenHalfWidth;
     private float screenHalfHeight;
@@ -40,7 +39,7 @@ public class CameraControl : MonoBehaviour
     void FixedUpdate(){
         Vector3 cameraPosition = offset;
 
-        if(playerIsFalling && player.isGrounded){
+        if(playerIsFalling && GameObject.FindWithTag("Player").GetComponent<PlayerControl>().isGrounded){
             playerIsFalling = false;
             smoothTime = originalSmoothTime;
         }
