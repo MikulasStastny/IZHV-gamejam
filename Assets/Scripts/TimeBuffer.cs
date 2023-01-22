@@ -8,27 +8,51 @@ public class TimeBuffer : MonoBehaviour
     public CharacterController controller;
     private Vector2[] array;
     private int arraySize;
-    private int arrayLength = 100;
+    private int arrayLength = 200;
+    Vector3 currentVelocity;
+    public float smoothTime = 0.1f;
+    public float moveSpeed = 0.25f;
+    private bool zPressed;
+    public float step = 0.5f;
+    private GameObject cameraControl;
 
     IEnumerator enterTimeLoop(){
         print("Entering time loop...");
         enabled = false;
+
+        //cameraControl.GetComponent<CameraControl>().enabled = false;
+        GetComponent<PlayerControl>().enabled = false;
+        
+
         int i = 0;
+        bool reversed = false;
         Vector3 move = new Vector3(0, 0, 0);
-        while(!Input.GetKey(KeyCode.P)){
+        while(!Input.GetKey(KeyCode.Space)){
             move.x = array[i].x;
             move.y = array[i].y;
             Vector3 diff = transform.TransformDirection(move - transform.position);
-            controller.Move(diff);
-            yield return new WaitForSeconds(0.025f);
+            controller.Move(diff * moveSpeed);
+            //transform.position = Vector3.SmoothDamp(transform.position, move, ref currentVelocity, smoothTime);
+            //transform.position = Vector3.MoveTowards(transform.position, move, step);
+            //transform.position = Vector3.Slerp(transform.position, move, moveSpeed);
             if(i == arrayLength -1){
-                i = 0;
+                reversed = true;
+            }
+            else if(i == 0){
+                reversed = false;
+            }
+            if(reversed){
+                i--;
             }
             else{
                 i++;
             }
+            yield return null;
         }
+        yield return new WaitForSeconds(0.5f);
         enabled = true;
+        GetComponent<PlayerControl>().enabled = true;
+        //cameraControl.GetComponent<CameraControl>().enabled = true;
         print("Exitting time loop.");
     }
 
@@ -45,6 +69,8 @@ public class TimeBuffer : MonoBehaviour
     {
         array = new Vector2[arrayLength];
         arraySize = 0;
+        zPressed = false;
+        cameraControl = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -54,11 +80,9 @@ public class TimeBuffer : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Z)){
             StartCoroutine(enterTimeLoop());
+            zPressed = true;
         }
 
-    }
-    void FixedUpdate(){
-    
         // Shifts values in array
         for(int i = arraySize; i > 0; i--){
             array[i] = array[i-1];
@@ -69,6 +93,13 @@ public class TimeBuffer : MonoBehaviour
 
         if(arraySize < arrayLength-1){
             arraySize++;
+        }
+
+    }
+    void FixedUpdate(){
+        if(zPressed){
+            //StartCoroutine(enterTimeLoop());
+            zPressed = false;
         }
     }
 }

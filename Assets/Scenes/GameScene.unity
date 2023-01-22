@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 987282722}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,6 +682,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 987282718}
   controller: {fileID: 987282721}
+  camera: {fileID: 0}
+  smoothTime: 0.1
+  moveSpeed: 0.01
+  step: 0.5
 --- !u!1001 &1411486944
 PrefabInstance:
   m_ObjectHideFlags: 0
