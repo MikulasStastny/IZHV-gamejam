@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeBuffer : MonoBehaviour
 {
     public Transform playerPosition;
+    private PlayerControl _player;
     // it is 60 frames per second
     private const int TOTAL_FRAMES = 300;
     public float moveSpeed = 0.25f;
@@ -40,6 +41,7 @@ public class TimeBuffer : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         enabled = true;
         GetComponent<PlayerControl>().enabled = true;
+        _player.isDead = false;
         print("Exitting time loop.");
     }
 
@@ -57,11 +59,12 @@ public class TimeBuffer : MonoBehaviour
     {
         _positions = new Queue<Vector2>();
         _traceBack = new List<Vector2>();
+        _player = GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Z)){
+        if(Input.GetKeyDown(KeyCode.Z) || _player.isDead){
             fillInTraceBack();
             StartCoroutine(enterTimeLoop());
         }
