@@ -17,6 +17,8 @@ public class TimeBuffer : MonoBehaviour
         print("Entering time loop...");
         enabled = false;
         GetComponent<PlayerControl>().enabled = false;
+        // This small wait allows player to see what caused it
+        yield return new WaitForSeconds(0.25f);
         
         int i = 0;
         Vector3 move = new Vector3(0, 0, 0);

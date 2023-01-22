@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     public bool isGrounded;
 
     public bool isDead;
-    private int deathCount;
+    public int deathCount;
 
     public float jumpForce = 18;
     private bool isSpriteFlipped = false;
@@ -28,6 +28,11 @@ public class PlayerControl : MonoBehaviour
             ++deathCount;
             // died
         }
+        else if (other.gameObject.tag == "WinZone")
+        {
+            Debug.Log("Yay you did it");
+        }
+
     }
 
     void checkIsGrounded(){
@@ -75,7 +80,7 @@ public class PlayerControl : MonoBehaviour
 
         checkIsGrounded();
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))&& isGrounded){
             body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             isGrounded = false;
         }
