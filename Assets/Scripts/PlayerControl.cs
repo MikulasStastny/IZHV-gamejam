@@ -89,6 +89,11 @@ public class PlayerControl : MonoBehaviour
 
         checkIsGrounded();
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
         if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))&& isGrounded){
             body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             isGrounded = false;
