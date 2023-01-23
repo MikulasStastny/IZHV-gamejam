@@ -522,6 +522,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afbf263ab2e42f92d8a4d4150959897c, type: 3}
+--- !u!1 &909863559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6386020979178522584, guid: 2ccf731029d68030e97efe2193e61a7d, type: 3}
+  m_PrefabInstance: {fileID: 3112502731471645038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!19719996 &909863561
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909863559}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
 --- !u!1001 &932640772
 PrefabInstance:
   m_ObjectHideFlags: 0
