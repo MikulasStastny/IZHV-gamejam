@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -30,9 +31,15 @@ public class PlayerControl : MonoBehaviour
         }
         else if (other.gameObject.tag == "WinZone")
         {
-            Debug.Log("Yay you did it");
+            StartCoroutine(exitLevel());
         }
 
+    }
+
+    private IEnumerator exitLevel(){
+        GameObject.FindWithTag("WinMessage").GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainMenu");
     }
 
     void checkIsGrounded(){
@@ -59,6 +66,8 @@ public class PlayerControl : MonoBehaviour
         deathCount = 0;
         // For some reason it does not scale correctly on the start from editor
         transform.localScale = new Vector2(1, 1);
+
+        GameObject.FindWithTag("WinMessage").GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Update() {
